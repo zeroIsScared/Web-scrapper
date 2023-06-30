@@ -26,14 +26,14 @@ function render(languages) {
         cells.push(td);
     }
 
-    let limitPerRow = [];
-    let x = 0;
-    do {
+    let limitPerRow = [4];
+    let x = limitPerRow[0];
+    while (x < languages.length) {
         x += 4;
         limitPerRow.push(x);
 
-    } while (x < languages.length);
-
+    }
+    console.log(limitPerRow)
     let r = 0;
     let addedCells = 0;
     let z = 0;
@@ -51,7 +51,7 @@ function render(languages) {
                 addedCells++;
             }
 
-            if (j === limitPerRow[r]) {
+            if (j === limitPerRow[r] - 1) {
 
                 table.appendChild(row);
                 body.appendChild(table);
